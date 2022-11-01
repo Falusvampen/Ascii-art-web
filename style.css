@@ -1,0 +1,42 @@
+ :root {
+     font-size: 62.5%;
+ }
+
+ body {
+     font-size: 1.6rem;
+ }
+
+ .TextContainer {
+     margin: auto;
+     width: 50%;
+     padding: 10px;
+ }
+
+ .input-container {
+     display: inline-block;
+     width: 100%;
+ }
+
+ .output-container {
+     display: inline-block;
+ }
+
+ .mlg-button {}
+ .TableLabel {
+     font-size: 1.6rem;
+     font-weight: bold;
+     margin: 10px;
+ }
+ .ListLabel {
+     font-size: 1.6rem;
+     font-weight: bold;
+     margin: 10px;
+     width: 150px;
+ }
+ select {
+     font-size: 1.6rem;
+     width: 100%;
+ }
+ .options {
+    float: right;
+ }
