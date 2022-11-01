@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ascii-art-web</title>
+
+    <style>
+      :root {
+        font-size: 62.5%;
+      }
+      body {
+        font-size: 1.6rem;
+      }
+      .main-container {
+        margin: auto;
+        width: 50%;
+        padding: 10px;
+      }
+      .input-container {
+        display: inline-block;
+        width: 100%;
+      }
+      .output-container {
+        display: inline-block;
+      }
+      .Labels {
+        display: inline-block;
+      }
+      .mlg-button {
+      }
+    </style>
+  </head>
+  <body>
+    <div class="All">
+      <div>
+        <label for="Font">Font:</label>
+        <select name="Font" id="Font" class="Font">
+          <option value="Standard">Standard</option>
+          <option value="Thinkertoy">Thinkertoy</option>
+          <option value="Shadow">Shadow</option>
+          <option value="300IQFont">300IQFont</option>
+        </select>
+        <br />
+        <label for="Color">Color:</label>
+        <select name="Color" id="Color">
+          <option value="Black">Black</option>
+          <option value="Red">Red</option>
+          <option value="Green">Green</option>
+          <option value="Yellow">Yellow</option>
+          <option value="Blue">Blue</option>
+          <option value="Magenta">Magenta</option>
+          <option value="Cyan">Cyan</option>
+          <option value="White">White</option>
+        </select>
+      </div>
+      <div class="main-container">
+        <div class="input-container">
+          <textarea
+            id="input"
+            placeholder="Enter your text here..."
+            rows="1"
+            cols="85"
+          ></textarea>
+        </div>
+        <div class="output-container">
+          <textarea
+            id="output"
+            placeholder="Your ASCII art will appear here..."
+            rows="10"
+            cols="85"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
