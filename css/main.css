@@ -1,0 +1,62 @@
+:root {
+  font-size: 62.5%;
+}
+
+* {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 2.2rem;
+}
+
+/* body {
+  font-size: 1.6rem;
+} */
+
+.title {
+  font-size: 3.6rem;
+}
+
+.text-container {
+  position: relative;
+
+  /* Make center and stay at top */
+  margin: 0 auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: inline-block;
+}
+/* width: 50%;
+  padding: 10px;
+} */
+
+.input-container {
+  display: inline-block;
+  width: 100%;
+}
+
+.output-container {
+  display: inline-block;
+}
+
+.mlg-button {
+}
+
+.table-label {
+  font-weight: bold;
+  margin: 10px;
+}
+.list-label {
+  font-weight: bold;
+  margin: 10px;
+  width: 150px;
+}
+select {
+  width: 100%;
+}
+.options {
+  float: right;
+}
