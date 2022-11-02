@@ -6,11 +6,12 @@ import (
 	"net/http"
 )
 
+const port = "80"
+
 func main() {
-	fmt.Printf("Starting server at port 8080\n")
+	fmt.Printf("Starting server at port %v\n", port)
 	http.Handle("/", http.FileServer(http.Dir("./")))
-	if err := http.ListenAndServe(":8080", nil); err != nil {
+	if err := http.ListenAndServe(":"+port, nil); err != nil {
 		log.Fatal(err)
 	}
-
 }
