@@ -5,20 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ascii-art-web</title>
-
-    <link rel="stylesheet" type="text/css" href="../style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/main.css" />
   </head>
   <body>
-    <div class="All">
+    <div class="main">
+      <div class="title" id="title">
+        <h1 class="title">ascii-art-web</h1>
+      </div>
       <div class="options">
         <table>
           <tbody>
             <tr>
-              <td class="TableLabel">
+              <td class="table-label">
                 <label for="Font">Font:</label>
               </td>
-              <td class="ListLabel">
-                <select name="Font" id="Font" class="Font">
+              <td class="list-label">
+                <select name="Font" id="font" class="font">
                   <option value="Standard">Standard</option>
                   <option value="Thinkertoy">Thinkertoy</option>
                   <option value="Shadow">Shadow</option>
@@ -27,11 +29,11 @@
               </td>
             </tr>
             <tr>
-              <td class="TableLabel">
-                <label for="Color">Color:</label>
+              <td class="table-label">
+                <label for="color">Color:</label>
               </td>
-              <td class="ListLabel">
-                <select name="Color" id="Color">
+              <td class="list-label">
+                <select name="Color" id="color">
                   <option value="Rainbow">Rainbow</option>
                   <option value="Black">Black</option>
                   <option value="Red">Red</option>
@@ -47,22 +49,17 @@
           </tbody>
         </table>
       </div>
-      <div class="TextContainer">
+      <div class="text-container">
         <div class="input-container">
           <textarea
             id="input"
             placeholder="Enter your text here..."
             rows="1"
-            cols="85"
+            cols="30"
           ></textarea>
         </div>
         <div class="output-container">
-          <textarea
-            id="output"
-            placeholder="Your ASCII art will appear here..."
-            rows="10"
-            cols="85"
-          ></textarea>
+          <p>Hello!</p>
         </div>
       </div>
     </div>
