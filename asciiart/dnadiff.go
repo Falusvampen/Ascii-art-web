@@ -1,18 +1,11 @@
 package asciiart
 
-import "fmt"
+import "strings"
 
-func DnaDiff() {
+func DnaDiff() string {
+	nice := "╭━━━━-╮<br>╰┃ ┣▇━▇)<br> ┃ ┃  ╰━▅╮<br> ╰┳╯ ╰━━┳╯ DNA DIFF<br>  ╰╮ ┳━━╯ GG EZ<br> ▕▔▋ ╰╮╭━╮NICE TUTORIAL<br>╱▔╲▋╰━┻┻╮╲╱▔▔▔╲<br>▏  ▔▔▔▔▔▔▔  O O┃<br>╲╱▔╲▂▂▂▂╱▔╲▂▂▂╱<br> ▏╳▕▇▇▕ ▏╳▕▇▇▕<br> ╲▂╱╲▂╱ ╲▂╱╲▂╱"
+	nice = strings.ReplaceAll(nice, " ", "&nbsp;")
+	nice = strings.ReplaceAll(nice, "U+2003", "&nbsp;")
 
-	fmt.Println("╭━━━━-╮")
-	fmt.Println("╰┃ ┣▇━▇)")
-	fmt.Println(" ┃ ┃  ╰━▅╮")
-	fmt.Println(" ╰┳╯ ╰━━┳╯ DNA DIFF")
-	fmt.Println("  ╰╮ ┳━━╯ GG EZ")
-	fmt.Println(" ▕▔▋ ╰╮╭━╮NICE TUTORIAL")
-	fmt.Println("╱▔╲▋╰━┻┻╮╲╱▔▔▔╲")
-	fmt.Println("▏  ▔▔▔▔▔▔▔  O O┃")
-	fmt.Println("╲╱▔╲▂▂▂▂╱▔╲▂▂▂╱")
-	fmt.Println(" ▏╳▕▇▇▕ ▏╳▕▇▇▕")
-	fmt.Println(" ╲▂╱╲▂╱ ╲▂╱╲▂╱")
+	return nice
 }
