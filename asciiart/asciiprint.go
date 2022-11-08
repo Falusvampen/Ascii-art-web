@@ -7,7 +7,7 @@ import (
 
 func AsciiPrint(s string, font string) string {
 	if s == "dnadiff" {
-		DnaDiff()
+		return DnaDiff()
 		// return nil
 	}
 	fontArray, err := GetFont(font)
