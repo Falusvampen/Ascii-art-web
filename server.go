@@ -37,8 +37,8 @@ func asciiHandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	fmt.Printf("Starting server at port %v\n", port)
-	http.Handle("/", http.FileServer(http.Dir("./")))
-	http.HandleFunc("/ascii", asciiHandler)
+	http.Handle("/ascii", http.FileServer(http.Dir("./")))
+	http.HandleFunc("/", asciiHandler)
 	if err := http.ListenAndServe(":"+port, nil); err != nil {
 		fmt.Println("Code: 500\nError starting server.")
 		log.Fatal(err)
