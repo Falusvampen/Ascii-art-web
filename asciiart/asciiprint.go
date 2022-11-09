@@ -10,10 +10,19 @@ func AsciiPrint(s string, font string) string {
 		return DnaDiff()
 		// return nil
 	}
+	invalidChars := ""
+	for _, c := range s {
+		if c < 32 || c > 126 {
+			invalidChars += string(c)
+		}
+	}
+	if invalidChars != "" {
+		return fmt.Sprintf("Invalid characters: %s", invalidChars)
+	}
 	fontArray, err := GetFont(font)
 	if err != nil {
-		fmt.Println(err)
-		// return nil
+		// fmt.Println(err)
+		return "Invalid font"
 	}
 	charArray := initializeLines(s)
 
