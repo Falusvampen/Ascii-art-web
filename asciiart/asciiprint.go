@@ -6,21 +6,29 @@ import (
 )
 
 func AsciiPrint(s string, font string) string {
+	// s = strings.ReplaceAll(s, "\r\n", "\n")
+	// A function that returns a string.
 	if s == "dnadiff" {
 		return DnaDiff()
 		// return nil
 	}
-	invalidChars := ""
-	for _, c := range s {
-		if c < 32 || c > 126 {
-			invalidChars += string(c)
-		}
-	}
-	if invalidChars != "" {
-		return fmt.Sprintf("Invalid characters: %s", invalidChars)
+	// niceError := s
+	// niceError = strings.ReplaceAll(s, "\r\n", "")
+	// invalidChars := ""
+	// for _, c := range niceError {
+	// 	if c < 32 || c > 126 {
+	// 		invalidChars += string(c)
+	// 	}
+	// }
+	// if invalidChars != "" {
+	// 	return fmt.Sprintf("Invalid characters: %s", invalidChars)
+	// }
+	if font == "" {
+		return ""
 	}
 	fontArray, err := GetFont(font)
 	if err != nil {
+
 		// fmt.Println(err)
 		return "Invalid font"
 	}
@@ -49,7 +57,12 @@ func AsciiPrint(s string, font string) string {
 	for _, line := range charArray {
 		result += line + "\n" + "<br>"
 	}
-	return strings.ReplaceAll(result, " ", "&nbsp;")
+	// if invalidChars != "" {
+	// 	result += fmt.Sprintf("Invalid characters: %s", invalidChars)
+	// 	fmt.Println("Invalid characters: ", invalidChars)
+	// }
+	result = strings.ReplaceAll(result, " ", "&nbsp;")
+	return result
 }
 
 func initializeLines(s string) []string {
