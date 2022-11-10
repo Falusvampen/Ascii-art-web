@@ -7,47 +7,27 @@
   font-size: 2.2rem;
 }
 
-/* body {
-  font-size: 1.6rem;
-} */
-.main {
-  text-align: center;
-}
-
-.title-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+#main {
+  overflow: hidden;
 }
 
 .title {
-  display: flex;
-  /* position: absolute; */
-  align-items: center;
-  top: -3rem;
-  /* left: 37%; */
-  /* width: 100%; */
-  /* height: 100%; */
-  font-size: 50%;
-  padding: inherit;
+  margin: 0 auto;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  height: 100%;
   text-align: center;
-  white-space: nowrap;
+  display: inline-block;
+  font-size: 50%;
 }
 
 .text-container > * {
-  /* position: relative; */
-  /* Make center and stay at top */
   margin: 0 auto;
   width: 100%;
   height: 100%;
   text-align: center;
   display: inline-block;
 }
-
-/* width: 50%;
-  padding: 10px;
-} */
 
 .input-container {
   display: inline-block;
@@ -58,8 +38,20 @@
 }
 
 .options {
-  display: flex;
-  justify-content: flex-end;
+  position: absolute;
+  top: 2rem;
+  right: 0.5rem;
+}
+
+@media screen and (max-width: 58rem) {
+  .options {
+    /* Center the options */
+    position: relative;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .table-label {
