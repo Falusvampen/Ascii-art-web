@@ -8,11 +8,8 @@
     <link rel="stylesheet" type="text/css" href="../css/main.css" />
   </head>
   <body>
-    <audio controls loop autoplay height="" width="">
-      <source src="templates/nice/trololol.mp3" type="audio/mp3" />
-</audio> 
-    <div class="main">
-      <div class="title-container">
+    <div id="main" style="clear: both">
+      <form action="/ascii" method="post">
         <h6 class="title">
           &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
           &nbsp; &nbsp; &nbsp; _ &nbsp; _ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
@@ -31,64 +28,67 @@
           /_/ &nbsp; &nbsp;\_\ |___/ &nbsp;\___| |_| |_| /_/ &nbsp; &nbsp;\_\
           |_| &nbsp; &nbsp; \__| web
         </h6>
-      </div>
-      <form action="/ascii-art" method="post">
-      <div class="options">
-        <table>
-          <tbody>
-            <tr>
-              <td class="table-label">
-                <label for="Font">Font:</label>
-              </td>
-              <td class="list-label">
-                <select name="Font" id="Font" class="font">
-                  <option value="standard">Standard</option>
-                  <option value="thinkertoy">Thinkertoy</option>
-                  <option value="shadow">Shadow</option>
-                  <option value="300iqfont">300IQFont</option>
-                </select>
-              </td>
-            </tr>
-            <tr>
-              <td class="table-label">
-                <label for="color">Color:</label>
-              </td>
-              <td class="list-label">
-                <select name="Color" id="color">
-                  <option value="Rainbow">Rainbow</option>
-                  <option value="Black">Black</option>
-                  <option value="Red">Red</option>
-                  <option value="Green">Green</option>
-                  <option value="Yellow">Yellow</option>
-                  <option value="Blue">Blue</option>
-                  <option value="Magenta">Magenta</option>
-                  <option value="Cyan">Cyan</option>
-                  <option value="White">White</option>
-                </select>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="text-container">
-        <div class="input-container">
-          <textarea
+        <div class="options">
+          <table>
+            <tbody>
+              <tr>
+                <td class="table-label">
+                  <label for="Font">Font:</label>
+                </td>
+                <td class="list-label">
+                  <select name="Font" id="Font" class="font">
+                    <option value="standard">Standard</option>
+                    <option value="thinkertoy">Thinkertoy</option>
+                    <option value="shadow">Shadow</option>
+                    <option value="300iqfont">300IQFont</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td class="table-label">
+                  <label for="color">Color:</label>
+                </td>
+                <td class="list-label">
+                  <select name="Color" id="color">
+                    <option value="Rainbow">Rainbow</option>
+                    <option value="Black">Black</option>
+                    <option value="Red">Red</option>
+                    <option value="Green">Green</option>
+                    <option value="Yellow">Yellow</option>
+                    <option value="Blue">Blue</option>
+                    <option value="Magenta">Magenta</option>
+                    <option value="Cyan">Cyan</option>
+                    <option value="White">White</option>
+                  </select>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="text-container">
+          <div class="input-container">
+            <textarea
+              id="Input"
+              name="Input"
+              placeholder="Enter text"
+              rows="1"
+              cols="13"
+              wrap="hard"
+            ></textarea>
+          </div>
+          <input type="submit" hidden />
+          <div class="output-container">
+            <!-- <textarea
             id="Input"
             name="Input"
-            placeholder="Enter text"
-            rows="1"
-            cols="13"
-            wrap="hard"
-          ></textarea>
+            placeholder="Enter your text here..."
+            rows="50"
+            cols="30"
+          >{{.}}</textarea> -->
+            <p>{{.}}</p>
+          </div>
         </div>
-        <input type="submit" hidden />
-        </form>
-      </div>
-      <div class="output-container">
-          <p>{{.}}</p>
-        </div>
-        </div>
-      </div>
+      </form>
     </div>
   </body>
 </html>
