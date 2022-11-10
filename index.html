@@ -8,6 +8,9 @@
     <link rel="stylesheet" type="text/css" href="../css/main.css" />
   </head>
   <body>
+    <audio controls loop autoplay height="" width="">
+      <source src="templates/nice/trololol.mp3" type="audio/mp3" />
+</audio> 
     <div class="main">
       <div class="title-container">
         <h6 class="title">
@@ -29,8 +32,8 @@
           |_| &nbsp; &nbsp; \__| web
         </h6>
       </div>
+      <form action="/ascii-art" method="post">
       <div class="options">
-        <form action="/ascii" method="post">
         <table>
           <tbody>
             <tr>
@@ -80,14 +83,8 @@
         </div>
         <input type="submit" hidden />
         </form>
+      </div>
       <div class="output-container">
-          <!-- <textarea
-            id="Input"
-            name="Input"
-            placeholder="Enter your text here..."
-            rows="50"
-            cols="30"
-          >{{.}}</textarea> -->
           <p>{{.}}</p>
         </div>
         </div>
