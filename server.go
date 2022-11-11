@@ -9,7 +9,7 @@ import (
 	"text/template"
 )
 
-const port = "80"
+const Port = "8080"
 
 var tmpl *template.Template
 
@@ -100,8 +100,8 @@ func asciiHandler(w http.ResponseWriter, r *http.Request) {
 func main() {
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css"))))
 	http.HandleFunc("/", asciiHandler)
-	fmt.Println("Server started on port", port)
-	err := http.ListenAndServe(":"+port, nil)
+	fmt.Println("Server started on port", Port)
+	err := http.ListenAndServe(":"+Port, nil)
 	if err != nil {
 		log.Fatal(err)
 	}
