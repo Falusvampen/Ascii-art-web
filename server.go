@@ -23,8 +23,18 @@ type Input struct {
 	Font  string
 }
 
+var err error
+
+func error500(w http.ResponseWriter, r *http.Request) {
+	d := Error{
+		Code:    500,
+		Message: "Internal Server Error",
+	}
+	errorHandler(w, r, &d)
+}
+
 func errorHandler(w http.ResponseWriter, r *http.Request, d *Error) {
-	tmpl = template.Must(template.ParseFiles("error.html"))
+	tmpl = template.Must(template.ParseFiles("templates/error.html"))
 	w.WriteHeader(d.Code)
 	tmpl.ExecuteTemplate(w, "error.html", d)
 }
@@ -40,6 +50,9 @@ func valid(input string) bool {
 	return true
 }
 func validFont(font string) bool {
+	if font == "" {
+		return true
+	}
 	fonts := []string{"standard", "shadow", "thinkertoy", "300iqfont"}
 	for _, f := range fonts {
 		if font == f {
@@ -50,8 +63,18 @@ func validFont(font string) bool {
 }
 
 func asciiHandler(w http.ResponseWriter, r *http.Request) {
-	// if r.Method == http.MethodPost && r.URL.Path == "/ascii" {
-	r.ParseForm()
+	d := Error{}
+	if r.URL.Path != "/" && r.URL.Path != "/ascii-art" {
+		d.Code = 404
+		d.Message = "Page Not Found"
+		errorHandler(w, r, &d)
+		return
+	}
+	err = r.ParseForm()
+	if err != nil {
+		error500(w, r)
+		return
+	}
 	AsciiInput := Input{
 		Input: r.FormValue("Input"),
 		Font:  r.FormValue("Font"),
@@ -59,32 +82,27 @@ func asciiHandler(w http.ResponseWriter, r *http.Request) {
 	if !validFont(AsciiInput.Font) {
 		errorHandler(w, r, &Error{Code: http.StatusBadRequest, Message: "Invalid font"})
 		return
-	}
-	if !valid(AsciiInput.Input) {
+	} else if !valid(AsciiInput.Input) {
 		errorHandler(w, r, &Error{Code: http.StatusBadRequest, Message: "Invalid characters"})
 		return
 	} else {
-		tmpl = template.Must(template.ParseFiles("index.html"))
+		nice, err := template.ParseFiles("templates/index.html")
+		if err != nil {
+			error500(w, r)
+			return
+		}
+		tmpl = template.Must(nice, err)
 		ascii := asciiart.AsciiPrint(AsciiInput.Input, AsciiInput.Font)
 		tmpl.ExecuteTemplate(w, "index.html", ascii)
 	}
-
 }
 
 func main() {
-
-	// start the server on port 80 and make sure the css and js files are served and handle all errors
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css"))))
 	http.HandleFunc("/", asciiHandler)
 	fmt.Println("Server started on port", port)
-	log.Fatal(http.ListenAndServe(":"+port, nil))
+	err := http.ListenAndServe(":"+port, nil)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
-
-// fmt.Printf("Starting server at port %v\n", port)
-// http.Handle("/", http.FileServer(http.Dir("./")))
-// http.HandleFunc("/ascii-art", asciiHandler)
-// if err := http.ListenAndServe(":"+port, nil); err != nil {
-// 	fmt.Println("Code: 500\nError starting server.")
-// 	log.Fatal(err)
-// }
-// }
