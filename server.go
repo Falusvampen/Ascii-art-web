@@ -64,21 +64,27 @@ func validFont(font string) bool {
 
 func asciiHandler(w http.ResponseWriter, r *http.Request) {
 	d := Error{}
-	if r.URL.Path != "/" && r.URL.Path != "/ascii-art" {
+	// for 404 handling
+	// if r.URL.Path != "/" && r.URL.Path != "/ascii-art" {
+	if r.URL.Path != "/" {
 		d.Code = 404
 		d.Message = "Page Not Found"
 		errorHandler(w, r, &d)
 		return
 	}
+	// check if there was a problem during parseForm
 	err = r.ParseForm()
 	if err != nil {
 		error500(w, r)
 		return
 	}
+
+	// take input from form
 	AsciiInput := Input{
 		Input: r.FormValue("Input"),
 		Font:  r.FormValue("Font"),
 	}
+	// check if input and font are valid
 	if !validFont(AsciiInput.Font) {
 		errorHandler(w, r, &Error{Code: http.StatusBadRequest, Message: "Invalid font"})
 		return
@@ -86,12 +92,13 @@ func asciiHandler(w http.ResponseWriter, r *http.Request) {
 		errorHandler(w, r, &Error{Code: http.StatusBadRequest, Message: "Invalid characters"})
 		return
 	} else {
-		nice, err := template.ParseFiles("templates/index.html")
+		// if input is valid, convert it to ascii, if not, return an 500 error page
+		index, err := template.ParseFiles("templates/index.html")
 		if err != nil {
 			error500(w, r)
 			return
 		}
-		tmpl = template.Must(nice, err)
+		tmpl = template.Must(index, err)
 		ascii := asciiart.AsciiPrint(AsciiInput.Input, AsciiInput.Font)
 		tmpl.ExecuteTemplate(w, "index.html", ascii)
 	}
