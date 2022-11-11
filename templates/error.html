@@ -44,8 +44,11 @@
     <a class="main-page" href="https://youtu.be/sCNrK-n68CM?t=25"
       >Go back to "main page"</a
     >
-    <a class="stay" href="http://localhost:8080"
-      >Go to main page for real bro</a
-    >
+    <script>
+      const url = location.protocol + "//" + location.host;
+      document.write(
+        '<a class="stay" href="' + url + '">Go to main page for real bro</a>'
+      );
+    </script>
   </body>
 </html>
