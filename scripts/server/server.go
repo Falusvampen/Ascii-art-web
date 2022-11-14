@@ -41,7 +41,7 @@ func asciiHandler(w http.ResponseWriter, r *http.Request) {
 		Input: r.FormValue("Input"),
 		Font:  r.FormValue("Font"),
 	}
-
+	// check if the input is valid
 	errForm := ValidForm(AsciiInput.Font, AsciiInput.Input)
 	if errForm.Code != 0 {
 		errorHandler(w, r, &errForm)
