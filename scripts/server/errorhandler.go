@@ -10,10 +10,11 @@ type Error struct {
 	Code    int
 	Message string
 }
+
 // handles 500 errors
 func error500(w http.ResponseWriter, r *http.Request) {
 	d := Error{
-		Code:    500,
+		Code:    http.StatusInternalServerError,
 		Message: "Internal Server Error",
 	}
 	errorHandler(w, r, &d)
@@ -54,12 +55,12 @@ func validFont(font string) bool {
 func ValidForm(font string, input string) Error {
 	var errForm Error
 	if !validInput(input) {
-		errForm.Code = 400
+		errForm.Code = http.StatusBadRequest
 		errForm.Message = "Invalid Input"
 		return errForm
 	}
 	if !validFont(font) {
-		errForm.Code = 400
+		errForm.Code = http.StatusBadRequest
 		errForm.Message = "Invalid Font"
 		return errForm
 	}
