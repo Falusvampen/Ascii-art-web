@@ -7,17 +7,12 @@
   font-size: 2.2rem;
 }
 
-/* #main {
-  overflow: hidden;
-} */
-
-.title {
+.header {
+  display: inline-block;
   margin: 0 auto;
   margin-bottom: 1.5rem;
   width: 100%;
-  height: 100%;
   text-align: center;
-  display: inline-block;
   font-size: 50%;
 }
 
@@ -28,15 +23,15 @@
 }
 
 .text-container > * {
+  display: inline-block;
   margin: 0 auto;
   width: 100%;
   height: 100%;
   text-align: center;
-  display: inline-block;
 }
 
-@media screen and (max-width: 600px) {
-  .title {
+@media screen and (max-width: 60rem) {
+  .header {
     font-size: 0.8rem;
   }
   .text-container {
@@ -49,8 +44,7 @@
   padding-bottom: 1rem;
 }
 
-#submit-button {
-  /* Center button */
+.submit-button {
   margin: 0 auto;
   display: block;
   width: 25%;
@@ -63,7 +57,6 @@
 
 @media screen and (max-width: 58rem) {
   .options {
-    /* Center the options */
     position: relative;
     top: 0;
     right: 0;
@@ -76,12 +69,12 @@
 
 .table-label {
   font-weight: bold;
-  margin: 10px;
+  margin: 1rem;
 }
 .list-label {
   font-weight: bold;
-  margin: 10px;
-  width: 150px;
+  margin: 1rem;
+  width: 15rem;
 }
 select {
   width: 100%;
