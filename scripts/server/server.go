@@ -24,7 +24,7 @@ func asciiHandler(w http.ResponseWriter, r *http.Request) {
 	// for 404 handling
 	// if r.URL.Path != "/" && r.URL.Path != "/ascii-art" {
 	if r.URL.Path != "/" {
-		d.Code = 404
+		d.Code = http.StatusNotFound
 		d.Message = "Page Not Found"
 		errorHandler(w, r, &d)
 		return
