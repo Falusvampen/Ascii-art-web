@@ -10,7 +10,7 @@ type Error struct {
 	Code    int
 	Message string
 }
-
+// handles 500 errors
 func error500(w http.ResponseWriter, r *http.Request) {
 	d := Error{
 		Code:    500,
@@ -25,6 +25,7 @@ func errorHandler(w http.ResponseWriter, r *http.Request, d *Error) {
 	tmpl.ExecuteTemplate(w, "error.html", d)
 }
 
+// looks through the input and returns true if it is valid
 func validInput(input string) bool {
 	input = strings.ReplaceAll(input, "\r\n", "")
 	for _, c := range input {
@@ -34,6 +35,8 @@ func validInput(input string) bool {
 	}
 	return true
 }
+
+// Looks through the list of fonts and returns true if the font is valid
 func validFont(font string) bool {
 	if font == "" {
 		return true
@@ -47,6 +50,7 @@ func validFont(font string) bool {
 	return false
 }
 
+// uses the validInput and validFont functions to check if the input is valid
 func ValidForm(font string, input string) Error {
 	var errForm Error
 	if !validInput(input) {
