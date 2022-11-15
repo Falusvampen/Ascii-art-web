@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os/exec"
 	"text/template"
 )
 
@@ -60,6 +61,7 @@ func asciiHandler(w http.ResponseWriter, r *http.Request) {
 
 // Start the server
 func Start() {
+	exec.Command("open", "http://localhost:"+Port).Start()
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css"))))
 	http.HandleFunc("/", asciiHandler)
 	fmt.Println("Server started on port", Port)
