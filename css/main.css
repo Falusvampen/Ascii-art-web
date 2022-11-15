@@ -7,6 +7,22 @@
   font-size: 2.2rem;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  background-size: 600% 600%;
+  background-image: linear-gradient(
+    -45deg,
+    rgb(160, 200, 218) 0%,
+    rgb(169, 178, 222) 25%,
+    rgb(164, 128, 177) 51%,
+    rgb(242, 160, 190) 100%
+  );
+  animation: AnimateBG 20s ease infinite;
+}
+
 .header {
   display: inline-block;
   margin: 0 auto;
@@ -55,7 +71,7 @@
   display: inline-block;
 }
 
-@media screen and (max-width: 58rem) {
+@media screen and (max-width: 60rem) {
   .options {
     position: relative;
     top: 0;
@@ -78,25 +94,6 @@
 }
 select {
   width: 100%;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100vh;
-  /* display: flex; */
-  /* align-items: center; */
-  /* justify-content: center; */
-  background-size: 600% 600%;
-  background-image: linear-gradient(
-    -45deg,
-    rgb(160, 200, 218) 0%,
-    rgb(169, 178, 222) 25%,
-    rgb(164, 128, 177) 51%,
-    rgb(242, 160, 190) 100%
-  );
-  animation: AnimateBG 20s ease infinite;
 }
 
 @keyframes AnimateBG {
