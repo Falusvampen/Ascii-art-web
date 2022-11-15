@@ -13,5 +13,5 @@ func main() {
 		fmt.Println("Only input one argument to change port.")
 		return
 	}
-	server.StartServer()
+	server.Start()
 }

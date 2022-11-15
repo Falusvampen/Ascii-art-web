@@ -58,7 +58,8 @@ func asciiHandler(w http.ResponseWriter, r *http.Request) {
 	tmpl.ExecuteTemplate(w, "index.html", ascii)
 }
 
-func StartServer() {
+// Start the server
+func Start() {
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css"))))
 	http.HandleFunc("/", asciiHandler)
 	fmt.Println("Server started on port", Port)
