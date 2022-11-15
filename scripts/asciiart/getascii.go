@@ -17,14 +17,6 @@ func GetFont(font string) ([95][8]string, error) {
 			break
 		}
 	}
-	//ls command using exec
-	// cmd := exec.Command("ls", "-l")
-	// //get output
-	// out, err := cmd.Output()
-	// if err != nil {
-	// 	fmt.Println(err)
-	// }
-	// fmt.Println(string(out))
 
 	file, err := os.Open(font)
 	if err != nil {
