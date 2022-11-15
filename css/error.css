@@ -1,16 +1,20 @@
-.header {
+:root {
+  font-size: 62.5%;
+}
+
+* {
   font-family: "Courier New", Courier, monospace;
-  font-size: 3.4rem;
+  font-size: 3.2rem;
+}
+
+.header {
+  font-size: 5.44rem;
   text-align: center;
 }
 .error {
-  font-family: "Courier New", Courier, monospace;
-  font-size: 2rem;
   text-align: center;
 }
 .main-page {
-  font-family: "Courier New", Courier, monospace;
-  font-size: 2rem;
   text-align: left;
 }
 .stay {
@@ -20,8 +24,8 @@
 }
 
 #container {
-  width: 70vw;
-  margin: 30vw auto;
+  width: 70%;
+  margin: 30% auto;
 }
 
 h1 {
@@ -171,23 +175,12 @@ div:after {
 @keyframes blinking {
   0% {
     background-color: #ffb8b8;
-    /* border: 5px solid #871924; */
   }
-  /* ADD MORE KEYFRAMES IF YOU WANT
-  50% {
-    background-color: #55d66b;
-    border: 5px solid #126620;
-  } */
   100% {
     background-color: #fd1b02;
-    /* border: 5px solid #6565f2; */
   }
 }
 
-/* (B) ATTACH BLINKING KEYFRAMES TO CONTAINER */
-/* animation: name | time | iterations */
 body {
-  /* width: 300px;
-  height: 300px; */
   animation: blinking 1s infinite;
 }
