@@ -1,8 +1,15 @@
-FROM golang:latest
-WORKDIR /dockerapp
+FROM golang:1.19
+
+WORKDIR /app
+
 LABEL maintainer="Falusvampen and Kevazy"
-COPY . .
+
+COPY go.mod ./
+
 RUN go mod download
-EXPOSE 8080
-RUN go build -o server
-CMD [ "./server" ]
+
+COPY . .
+
+RUN go build -o main .
+
+CMD ["/app/main"]
